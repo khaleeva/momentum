@@ -30,10 +30,8 @@ function getSlidePrev() {
     setBg()
 }
 
-
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
-
 
 const setBg = () => {
 
@@ -42,9 +40,8 @@ const setBg = () => {
     const img = new Image();
     img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`
     img.addEventListener('load', () => {
-        body.style.backgroundImage = `url(https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg)`
+        body.style.backgroundImage = `url(${img.src})`
     })
 }
-
 setBg()
 
