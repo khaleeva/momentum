@@ -1,5 +1,8 @@
 import {getTimeOfDay} from "./greeting";
 
+
+
+
 const body = document.querySelector('body')
 const slideNext = document.querySelector('.slide-next')
 const slidePrev = document.querySelector('.slide-prev')
@@ -38,7 +41,7 @@ const setBg = () => {
     const timeOfDay = getTimeOfDay()
     const bgNum = randomNum.toString().padStart(2, '0')
     const img = new Image();
-    img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`
+    img.src = `https://raw.githubusercontent.com/khaleeva/stage1-tasks/webp/images/${timeOfDay}/${bgNum}.webp`
     img.addEventListener('load', () => {
         body.style.backgroundImage = `url(${img.src})`
     })
