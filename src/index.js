@@ -3,4 +3,4 @@ import './js/greeting'
 import './js/background'
 import './js/weather'
 import './js/quotes'
-
+import './js/sounds'

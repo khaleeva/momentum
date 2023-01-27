@@ -21,7 +21,7 @@ const greeting = document.querySelector('.greeting'),
 
 export const showGreeting = () => {
     const timeOfDay = getTimeOfDay();
-    greeting.textContent = `Good ${timeOfDay},`;
+    greeting.textContent = `Good ${timeOfDay}, `;
 }
 
 function setLocalStorage() {
