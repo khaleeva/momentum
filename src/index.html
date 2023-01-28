@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="assets/favicon.ico" rel="shortcut icon" />
-  <link rel="stylesheet" href="css/owfont-regular.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>momentum</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="assets/favicon.ico" rel="shortcut icon"/>
+    <link rel="stylesheet" href="css/owfont-regular.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>momentum</title>
 </head>
 <body>
-  <header class="header">
-    <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
-      </div>
-      <ul class="play-list"></ul>
+<header class="header">
+    <div class="player-container">
+        <div class="player">
+            <div class="player-info">
+                <div class="player-title"></div>
+                <div class="player-author"></div>
+                <div class="player-controls">
+                    <div class="controls-btn">
+                        <button class="play-prev player-icon"></button>
+                        <button class="play player-icon"></button>
+                        <button class="play-next player-icon"></button>
+                    </div>
+                    <div class="progress">
+                        <div class="controls-progress">
+                            <span class="progress-line"></span>
+                            <div class="bar">
+                                <span class="fill"></span>
+                            </div>
+                            <input type="range" class="range" min="0" max="" value="0">
+                        </div>
+                        <div class="current-duration"></div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="volume-container">
+                <div class="volume-progress">
+                    <span class="volume-line"></span>
+                    <div class="bar-volume">
+                        <span class="fill-volume"></span>
+                    </div>
+                    <input type="range" class="volume-range" min="0" max="1" step="0.1" value="0.3">
+                </div>
+                <button class="volume player-icon"></button>
+            </div>
+            <div class="player-poster"></div>
+        </div>
+<!--        <ul class="play-list"></ul>-->
     </div>
     <div class="weather">
-      <input type="text" class="city" value="Minsk" placeholder="[Enter city]"/>
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="temperature"></span>
-        <span class="weather-description"></span>
-      </div>
-      <div class="wind"></div>
-      <div class="humidity"></div>
+        <input type="text" class="city" value="Minsk" placeholder="[Enter city]"/>
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+            <span class="temperature"></span>
+            <span class="weather-description"></span>
+        </div>
+        <div class="wind"></div>
+        <div class="humidity"></div>
     </div>
-  </header>
-  <main class="main">
+</header>
+
+<main class="main">
     <div class="slider-icons">
-      <button class="slide-prev slider-icon"></button>
-      <button class="slide-next slider-icon"></button>
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
     </div>
     <time class="time"></time>
     <date class="date"></date>
     <div class="greeting-container">
-      <span class="greeting"></span>
-      <input type="text" class="name" value="" placeholder="[Enter your name]"/>
+        <span class="greeting"></span>
+        <input type="text" class="name" value="" placeholder="[Enter your name]"/>
     </div>
-  </main>
-  <footer class="footer">
+</main>
+<footer class="footer">
     <button class="change-quote"></button>
     <div>
-      <div class="quote"></div>
-      <div class="author"></div>
+        <div class="quote"></div>
+        <div class="author"></div>
     </div>
-  </footer>
+</footer>
 </body>
 </html>

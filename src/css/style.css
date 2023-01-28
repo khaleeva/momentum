@@ -33,12 +33,202 @@ body {
   padding: 20px;
 }
 
-.player-controls {
+.player{
+  width: 400px;
+  height: 150px;
+  background-color: rgba(255,255,255,0.2);
+  display: flex;
+  border-radius: 3px;
+  box-shadow: 0px 4px 10px  rgba(0, 0, 0, 0.6);
+  justify-content: space-between;
+}
+
+.player-info{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: flex-start;
+}
+
+.player-title{
+  font-size: 20px;
+}
+
+.player-author{
+  font-size: 14px;
+  color: rgba(255,255,255, 0.5);
+  margin-top: 5px;
+}
+
+
+.player-poster{
+  width: 150px;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  flex-grow: 1;
+}
+
+.player-controls{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.progress{
+  display: flex;
+  align-items: flex-end;
+  column-gap: 7px;
+  width: 100%;
+}
+
+.current-duration, .current-duration > span{
+  color: rgba(255,255,255,0.6);
+  font-size: 10px;
+
+
+}
+
+
+
+.controls-progress {
+  position: relative;
+  flex-grow: 1;
+
+}
+
+.progress-line {
+  z-index: 1;
+  position: absolute;
+  top: 70%;
+  transform: translateY(-50%);
+  height: 1px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+
+}
+
+.bar {
+  position: absolute;
+  z-index: 1;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+ .fill{
+  display: block;
+  width: 0%;
+  height: 2px;
+   background: linear-gradient(90deg, #ea5c2f 0%, #f3b921 100%);
+  border-radius: 5px;
+
+}
+
+.range {
+  position: relative;
+  z-index: 2;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+
+}
+
+.range::-webkit-slider-thumb, .volume-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 4px solid white;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 2px;
+  background: linear-gradient(90deg, #ea5c2f 0%, #f3b921 100%);
+
+}
+
+.volume-range::-webkit-slider-thumb{
+  margin-bottom: 0;
+}
+
+.volume-container{
+  max-width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.volume-progress{
+  transform: rotate(-90deg);
+  margin-bottom: 40px;
+  position: relative;
+  /*background-color: red;*/
+
+}
+
+.volume-line {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 45%;
+  transform: translateY(-50%);
+  height: 1px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+
+.bar-volume {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left:0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.fill-volume{
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ea5c2f 0%, #f3b921 100%);
+  border-radius: 5px;
+
+}
+
+.volume-range{
+  max-width: 80px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+
+}
+
+
+
+
+
+.controls-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
 }
 
 .play-list {
@@ -97,26 +287,51 @@ body {
 .slider-icon:active,
 .change-quote:active {
   border: 0;
-  outline: 0;  
+  outline: 0;
   transform: scale(1.1);
 }
 
 .play {
   width: 40px;
   height: 40px;
-  background-size: 40px 40px;
+  background-size: 32px 32px;
   background-image: url("../assets/svg/play.svg");
 }
 
 .pause {
+  width: 40px;
+  height: 40px;
+  background-size: 32px 32px;
   background-image: url("../assets/svg/pause.svg");
 }
 
 .play-prev {
+  width: 32px;
+  height: 32px;
+  background-size: 24px 24px;
   background-image: url("../assets/svg/play-prev.svg");
 }
 
+.volume {
+  width: 24px;
+  height: 24px;
+  background-size: 18px 18px;
+  background-image: url("../assets/svg/volume.svg");
+  margin-bottom: 2px;
+}
+
+
+.mute{
+  width: 24px;
+  height: 24px;
+  background-size: 18px 18px;
+  background-image: url("../assets/svg/mute.svg");
+}
+
 .play-next {
+  width: 32px;
+  height: 32px;
+  background-size: 24px 24px;
   background-image: url("../assets/svg/play-next.svg");
 }
 
