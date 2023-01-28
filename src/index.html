@@ -13,13 +13,20 @@
     <div class="player-container">
         <div class="player">
             <div class="player-info">
-                <div class="player-title"></div>
-                <div class="player-author"></div>
+                <div class="player-title">
+                    <span class="sound-title"></span>
+                </div>
+                <div class="player-author">
+                    <span class="sound-author"></span>
+                </div>
                 <div class="player-controls">
                     <div class="controls-btn">
-                        <button class="play-prev player-icon"></button>
-                        <button class="play player-icon"></button>
-                        <button class="play-next player-icon"></button>
+                        <button class="playlist player-icon"></button>
+                        <div class="player-btn">
+                            <button class="play-prev player-icon"></button>
+                            <button class="play player-icon"></button>
+                            <button class="play-next player-icon"></button>
+                        </div>
                     </div>
                     <div class="progress">
                         <div class="controls-progress">
@@ -48,7 +55,10 @@
             </div>
             <div class="player-poster"></div>
         </div>
-<!--        <ul class="play-list"></ul>-->
+        <div class="playlist-container">
+            <ul class="play-list"></ul>
+        </div>
+
     </div>
     <div class="weather">
         <input type="text" class="city" value="Minsk" placeholder="[Enter city]"/>

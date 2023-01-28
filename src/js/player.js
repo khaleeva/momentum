@@ -1,14 +1,13 @@
 import playList from "./playlist";
 
-const play = document.querySelector('.play'),
-    range = document.querySelector('.range'),
-    next = document.querySelector('.play-next'),
-    prev = document.querySelector('.play-prev'),
-    poster = document.querySelector('.player-poster'),
-    volume = document.querySelector('.volume'),
-    // playListItems = document.querySelector('.play-list'),
-    volumeRange = document.querySelector('.volume-range')
-
+const play = document.querySelector('.play'), range = document.querySelector('.range'),
+    next = document.querySelector('.play-next'), prev = document.querySelector('.play-prev'),
+    poster = document.querySelector('.player-poster'), volume = document.querySelector('.volume'),
+    playListItems = document.querySelector('.play-list'), volumeRange = document.querySelector('.volume-range'),
+    author = document.querySelector('.sound-author'), title = document.querySelector('.sound-title'),
+    fillVolume = document.querySelector('.fill-volume'),
+    openPlayListBtn = document.querySelector('.playlist'),
+    playListContainer = document.querySelector('.playlist-container')
 
 let isPlay = true;
 const audio = new Audio();
@@ -18,14 +17,52 @@ let savedVolume = volumeRange.value;
 
 
 poster.style.backgroundImage = `url(${playList[playNum].img})`
-document.querySelector('.player-title').textContent = playList[playNum].title
-document.querySelector('.player-author').textContent = playList[playNum].author
-document.querySelector('.fill-volume').style.width = volumeRange.value * 100 + '%'
+title.textContent = playList[playNum].title
+author.textContent = playList[playNum].author
+fillVolume.style.width = volumeRange.value * 100 + '%'
 
-// const items = playList.map(playItem => {
-//     return `<li class = 'play-item' data-name = ${playItem.key}>${playItem.title}</li>`
-// })
-// playListItems.innerHTML = items.join('')
+const items = playList.map(playItem => {
+    return `<li class = 'play-item' data-id = ${playItem.id}>
+                <div class="item-title">${playItem.title}</div>
+                <div class="item-author">${playItem.author}</div>
+            </li>`
+})
+playListItems.innerHTML = items.join('')
+
+const elemArr = Array.from(playListItems.childNodes)
+
+elemArr.forEach(i => i.addEventListener('click', function (e) {
+    playNum = i.dataset.id - 1
+    savedTime = 0
+    isPlay = true
+    playAudio()
+}))
+
+
+const setActiveClass = (num) => {
+    if (playListItems) {
+        if (!num) {
+            elemArr.forEach(el => {
+                if (el.classList.contains('item-active')) {
+                    el.classList.remove('item-active')
+                }
+            })
+        }
+        elemArr.forEach(el => {
+            if (el.classList.contains('item-active') && el.dataset.id !== (playList[num].id).toString()) {
+                el.classList.remove('item-active')
+            } else if (el.dataset.id === (playList[num].id).toString()) {
+                el.classList.add('item-active')
+            }
+        })
+    }
+}
+
+const openPlayList = () => {
+    playListContainer.classList.toggle('open-playlist')
+}
+
+openPlayListBtn.addEventListener('click', openPlayList)
 
 
 const playAudio = () => {
@@ -36,13 +73,24 @@ const playAudio = () => {
         play.classList.add('pause')
         isPlay = false
         poster.style.backgroundImage = `url(${playList[playNum].img})`
-        document.querySelector('.player-title').textContent = playList[playNum].title
-        document.querySelector('.player-author').textContent = playList[playNum].author
+
+        if (playList[playNum].author.length > 23) {
+            author.classList.add('scroll')
+        } else author.classList.remove('scroll')
+
+        if (playList[playNum].title.length > 21) {
+            title.classList.add('scroll')
+        } else title.classList.remove('scroll')
+
+        title.textContent = playList[playNum].title
+        author.textContent = playList[playNum].author
+        setActiveClass(playNum)
     } else {
         savedTime = audio.currentTime;
         audio.pause();
         play.classList.remove('pause')
         isPlay = true
+        setActiveClass(null)
     }
 }
 
@@ -54,6 +102,7 @@ const playNext = () => {
     savedTime = 0;
     isPlay = true
     playAudio()
+    setActiveClass(playNum)
 }
 const playPrev = () => {
     if (playNum > 0) {
@@ -62,6 +111,7 @@ const playPrev = () => {
     savedTime = 0;
     isPlay = true
     playAudio()
+    setActiveClass(playNum)
 
 }
 
@@ -77,7 +127,7 @@ audio.addEventListener('ended', function () {
 function changeVolume() {
     audio.volume = volumeRange.value
     savedVolume = audio.volume
-    document.querySelector('.fill-volume').style.width = volumeRange.value * 100 + '%'
+    fillVolume.style.width = volumeRange.value * 100 + '%'
 
 }
 
