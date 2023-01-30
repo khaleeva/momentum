@@ -13,30 +13,59 @@ let isPlay = true;
 const audio = new Audio();
 let playNum = 0;
 let savedTime = 0;
+let currentSong = null;
 let savedVolume = volumeRange.value;
 
+document.addEventListener("DOMContentLoaded", () => {
 
-poster.style.backgroundImage = `url(${playList[playNum].img})`
-title.textContent = playList[playNum].title
-author.textContent = playList[playNum].author
-fillVolume.style.width = volumeRange.value * 100 + '%'
+    poster.style.backgroundImage = `url(${playList[playNum].img})`
+    title.textContent = playList[playNum].title
+    author.textContent = playList[playNum].author
+    fillVolume.style.width = volumeRange.value * 100 + '%'
+
+});
+
 
 const items = playList.map(playItem => {
-    return `<li class = 'play-item' data-id = ${playItem.id}>
+    return `<li class = 'play-item ' data-id = ${playItem.id}>
                 <div class="item-title">${playItem.title}</div>
                 <div class="item-author">${playItem.author}</div>
             </li>`
 })
+
 playListItems.innerHTML = items.join('')
+
 
 const elemArr = Array.from(playListItems.childNodes)
 
-elemArr.forEach(i => i.addEventListener('click', function (e) {
-    playNum = i.dataset.id - 1
-    savedTime = 0
-    isPlay = true
+
+elemArr.forEach(function(element) {
+    element.addEventListener("click", togglePlay.bind([isPlay, savedTime], element));
+});
+
+function togglePlay(element) {
+    playNum = element.dataset.id - 1
+
+    if (currentSong === null) {
+        currentSong = element.dataset.id;
+    }
+    else if (currentSong === element.dataset.id) {
+        savedTime = audio.currentTime
+        if(!isPlay){
+            isPlay = true
+            playAudio()
+
+        }
+    }
+    else {
+        currentSong = element.dataset.id
+        isPlay = true
+        savedTime = 0
+    }
     playAudio()
-}))
+
+}
+
 
 
 const setActiveClass = (num) => {
@@ -45,14 +74,17 @@ const setActiveClass = (num) => {
             elemArr.forEach(el => {
                 if (el.classList.contains('item-active')) {
                     el.classList.remove('item-active')
+                    el.style.setProperty('--image', 'url(../assets/svg/playPl.svg)');
                 }
             })
         }
         elemArr.forEach(el => {
             if (el.classList.contains('item-active') && el.dataset.id !== (playList[num].id).toString()) {
                 el.classList.remove('item-active')
+                el.style.setProperty('--image', 'url(../assets/svg/playPl.svg)');
             } else if (el.dataset.id === (playList[num].id).toString()) {
                 el.classList.add('item-active')
+                el.style.setProperty('--image', 'url(../assets/svg/pausePl.svg)');
             }
         })
     }
@@ -73,7 +105,6 @@ const playAudio = () => {
         play.classList.add('pause')
         isPlay = false
         poster.style.backgroundImage = `url(${playList[playNum].img})`
-
         if (playList[playNum].author.length > 23) {
             author.classList.add('scroll')
         } else author.classList.remove('scroll')

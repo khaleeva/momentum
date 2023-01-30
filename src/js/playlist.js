@@ -1,10 +1,10 @@
 const playList = [
     {
         id: 1,
-        title: `I've Never Been There`,
-        src: `../assets/sounds/Yann Tiersen-I've Never Been There.mp3`,
-        author: 'Yann Tiersen',
-        img: `../assets/img/soundPoster/01.jpg`,
+        title: `Intro`,
+        src: `../assets/sounds/The xx-Intro.mp3`,
+        author: 'The xx',
+        img: `../assets/img/soundPoster/intro.jpg`,
     },
 
     {
@@ -17,24 +17,26 @@ const playList = [
 
     {
         id: 3,
+        title: `The Fade Out Line`,
+        src: `../assets/sounds/Phoebe Killdeer & The Short Straws-The Fade Out Line.mp3`,
+        author: 'Phoebe Killdeer & The Short Straws ',
+        img: `../assets/img/soundPoster/4.jpg`,
+
+    },
+    {
+        id: 4,
         title: `La redécouverte`,
         src: `../assets/sounds/Yann Tiersen-La redécouverte.mp3`,
         author: 'Yann Tiersen',
         img: `../assets/img/soundPoster/03.jpg`,
     },
     {
-        id: 4,
-        title: `Intro`,
-        src: `../assets/sounds/The xx-Intro.mp3`,
-        author: 'The xx',
-        img: `../assets/img/soundPoster/intro.jpg`,
-    },
-    {
         id: 5,
-        title: `The Fade Out Line`,
-        src: `../assets/sounds/Phoebe Killdeer & The Short Straws-The Fade Out Line.mp3`,
-        author: 'Phoebe Killdeer & The Short Straws ',
-        img: `../assets/img/soundPoster/4.jpg`,
+        title: `I've Never Been There`,
+        src: `../assets/sounds/Yann Tiersen-I've Never Been There.mp3`,
+        author: 'Yann Tiersen',
+        img: `../assets/img/soundPoster/01.jpg`,
+
     },
 
 

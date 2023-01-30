@@ -32,6 +32,7 @@ window.addEventListener('beforeunload', setLocalStorage)
 function getLocalStorage() {
     if(localStorage.getItem('name')) {
         name.value = localStorage.getItem('name');
+        showGreeting()
     }
 }
 window.addEventListener('load', getLocalStorage)
