@@ -12,6 +12,7 @@ function setCity(event) {
     if (event.code === 'Enter') {
         getWeather();
         city.blur();
+        setLocalStorage()
     }
 }
 
@@ -41,7 +42,7 @@ async function getWeather() {
         document.querySelector('.description-container').style.display = 'flex'
         weatherIcon.style.visibility = 'visible'
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-        temperature.textContent = getFormatTemperature(data.main.temp);
+        temperature.textContent = getFormatData(data.main.temp);
         weatherDescription.textContent = data.weather[0].description;
         wind.textContent = `${data.wind.speed} m/s`
         humidity.textContent = `${data.main.humidity}%`
@@ -54,7 +55,7 @@ async function getWeather() {
 }
 
 
-function getFormatTemperature(num) {
+function getFormatData(num) {
 
     let temp = Math.ceil(num)
 

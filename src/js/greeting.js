@@ -24,6 +24,9 @@ export const showGreeting = () => {
     greeting.textContent = `Good ${timeOfDay}, `;
 }
 
+window.addEventListener('DOMContentLoaded', showGreeting)
+
+
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
 }
@@ -32,10 +35,10 @@ window.addEventListener('beforeunload', setLocalStorage)
 function getLocalStorage() {
     if(localStorage.getItem('name')) {
         name.value = localStorage.getItem('name');
-        showGreeting()
     }
 }
 window.addEventListener('load', getLocalStorage)
+
 
 
 

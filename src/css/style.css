@@ -469,9 +469,9 @@ body {
   font-size: 36px;
   font-weight: 400;
   text-align: right;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(180deg, #ea5c2f 0%, #f3b921 100%);
+  /*-webkit-background-clip: text;*/
+  /*-webkit-text-fill-color: transparent;*/
+  /*background-image: linear-gradient(180deg, #ea5c2f 0%, #f3b921 100%);*/
 }
 
 .description-container {
@@ -521,7 +521,7 @@ body {
 .weather-description{
   text-transform: capitalize;
   font-size: 14px;
-  color: rgba(255,255,255, 0.5);
+  /*color: rgba(255,255,255, 0.5);*/
 
 }
 
