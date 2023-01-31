@@ -58,18 +58,18 @@
         </div>
     </div>
     <div class="weather">
-            <div class="weather-container">
-                <input type="text" class="city" value="Minsk" placeholder="[Enter city]"/>
-                <div class="temperature"></div>
+        <div class="weather-container">
+            <input type="text" class="city" value="Minsk" placeholder="[Enter city]"/>
+            <div class="temperature"></div>
+        </div>
+        <div class="description-container">
+            <div class="weather-info">
+                <div class="wind"></div>
+                <div class="humidity"></div>
+                <div class="weather-description"></div>
             </div>
-            <div class="description-container">
-                <div class="weather-info">
-                    <div class="wind"></div>
-                    <div class="humidity"></div>
-                    <div class="weather-description"></div>
-                </div>
-                <i class="weather-icon owf"></i>
-            </div>
+            <i class="weather-icon owf"></i>
+        </div>
         <div class="weather-error"></div>
     </div>
 </header>
@@ -87,11 +87,29 @@
     </div>
 </main>
 <footer class="footer">
-    <button class="change-quote"></button>
-    <div>
-        <div class="quote"></div>
-        <div class="author"></div>
+    <div class="footer-container">
+        <div class="footer-quote">
+            <button class="change-quote"></button>
+            <div>
+                <div class="quote"></div>
+                <div class="author"></div>
+            </div>
+        </div>
+        <div class="footer-setting">
+            <div class="settings-todo"><img src="../assets/svg/task.svg" alt="task"></div>
+            <div class="settings-btn"><img src="../assets/svg/settings.svg" alt="settings"></div>
+        </div>
     </div>
+    <nav class="footer-nav">
+        <a href="https://rs.school/js/"><img src="../assets/svg/rs-school-js.svg" alt="rsschool"></a>
+        <div class="nav-info">
+            <a href="https://github.com/khaleeva"><img src="../assets/svg/github.svg" alt="github"></a>
+            <p>Khaleeva, 2023</p>
+        </div>
+
+    </nav>
+
+
 </footer>
 </body>
 </html>

@@ -1,9 +1,40 @@
 import {showGreeting} from "./greeting";
 
+
 const time = document.querySelector('.time'),
     dateElem = document.querySelector('.date')
 
-const weekDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const weekDays = [
+    {
+        'en': "Sunday",
+        'ru': 'Воскресенье'
+    },
+    {
+        'en': "Monday",
+        'ru': 'Понедельник'
+
+    },
+    {
+        'en': "Tuesday",
+        'ru': 'Вторник'
+    },
+    {
+        'en': "Wednesday",
+        'ru': 'Среда'
+    },
+    {
+        'en': "Thursday",
+        'ru': 'Четверг'
+    },
+    {
+        'en': "Friday",
+        'ru': 'Пятница'
+    },
+    {
+        'en': "Saturday",
+        'ru': 'Суббота'
+    }
+];
 
 const showTime = () => {
     const date = new Date();
@@ -18,7 +49,7 @@ const showDate = () => {
     const options = {month: 'long', day: 'numeric'};
     const currentDate = date.toLocaleDateString('en-En', options);
     const day = date.getDay()
-    dateElem.textContent = `${weekDays[day]}, ${currentDate}`
+    dateElem.textContent = `${weekDays[day].en}, ${currentDate}`
 }
 
 showTime()

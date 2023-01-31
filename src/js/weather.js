@@ -63,7 +63,7 @@ function getFormatData(num) {
         return `${temp}°C`
     } else if (temp > 0) {
         return `+${Math.ceil(temp)}°C`
-    } else return `-${Math.ceil(temp)}°C`
+    } else return `${Math.ceil(temp)}°C`
 
 }
 
