@@ -4,4 +4,6 @@ import './js/background'
 import './js/weather'
 import './js/quotes'
 import './js/player'
-import './js/translate'
+import './js/settings'
+
+
