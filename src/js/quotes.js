@@ -1,3 +1,4 @@
+import state from "./settings";
 
 const quote = document.querySelector('.quote'),
     author = document.querySelector('.author'),
@@ -11,15 +12,17 @@ function getRandomQuotes (data) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
-async function getQuotes() {
-    const quotes = 'data.json';
+export async function getQuotes() {
+    const quotes = state.language === 'eng' ? 'data.json' : 'data-ru.json';
     const res = await fetch(quotes);
     const data = await res.json();
     quote.textContent = data[getRandomQuotes(data)].text
     author.textContent = data[getRandomQuotes(data)].author
 
 }
-getQuotes();
+
+window.addEventListener('load', getQuotes)
+
 
 
 changeQuotesBtn.addEventListener('click', getQuotes)

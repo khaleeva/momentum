@@ -45,25 +45,21 @@ elemArr.forEach(function(element) {
 
 function togglePlay(element) {
     playNum = element.dataset.id - 1
-
     if (currentSong === null) {
         currentSong = element.dataset.id;
-    }
-    else if (currentSong === element.dataset.id) {
+        isPlay = true
+    }else if (currentSong === element.dataset.id) {
         savedTime = audio.currentTime
         if(!isPlay){
             isPlay = true
             playAudio()
-
         }
-    }
-    else {
+    } else {
         currentSong = element.dataset.id
         isPlay = true
         savedTime = 0
     }
     playAudio()
-
 }
 
 

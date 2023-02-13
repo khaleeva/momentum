@@ -16,6 +16,7 @@
 }
 
 body {
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
@@ -28,6 +29,7 @@ body {
   background-color:  rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
+
 }
 
 .header {
@@ -438,7 +440,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   row-gap: 5px;
-  width: 270px;
+  width: 300px;
   height: 150px;
   text-align: left;
   background-color: rgba(255,255,255,0.2);
@@ -454,7 +456,7 @@ body {
 }
 .city {
 
-  max-width: 150px;
+  max-width: 160px;
   height: 34px;
   padding: 5px;
   font-size: 20px;
@@ -673,8 +675,12 @@ body {
 }
 
 .modal-settings, .modal-todo{
-  display: none;
+  /*display: none;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
+  row-gap: 30px;
   bottom:0;
   left: 70px;
   /*transform: translate(-50%, -50%);*/
@@ -683,7 +689,105 @@ body {
   border-radius: 5px;
   width: 300px;
   height: 320px;
+  padding: 5px;
 }
+
+.lang-container, .background-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+
+.select {
+  width: 80%;
+  position: relative;
+}
+
+.select-header {
+  width: 100%;
+  height: 30px;
+  /*background-color: red;*/
+  border-bottom: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease-in-out;
+  padding: 5px;
+}
+
+.arrow{
+  width: 16px !important;
+  height: 16px !important;
+  transform: rotate(0deg);
+  transition: transform 0.4s ease-out;
+}
+.arrow-active{
+  transform: rotate(180deg);
+  transition: transform 0.4s ease-out;
+}
+
+
+
+/*.select-current{*/
+/*  font-weight: 400;*/
+/*  font-size: 20px;*/
+/*  line-height: 40px;*/
+/*  letter-spacing: 0.05em;*/
+/*  !*color: $grey;*!*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*}*/
+
+.select-body {
+  /*display: block;*/
+  border-top: 0;
+  height: 0;
+  left: 0;
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  top: 40px;
+  width: 100%;
+  background-color: rgb(255,255,255);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: height 0.4s ease-in-out;
+  z-index: 1;
+  border-radius: 5px;
+
+}
+
+.openSelect{
+  height: 100px !important;
+  transition: height 0.4s ease-in-out;
+}
+
+.select-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  /*margin-bottom: 10px;*/
+  padding: 5px;
+
+}
+
+.select-item:first-child{
+  margin-top: 10px;
+}
+
+.select-item:last-child{
+  margin-bottom: 10px;
+}
+.select-item:hover{
+  color: #000;
+}
+
+
 
 .modal-todo{
   /*right: 370px;*/

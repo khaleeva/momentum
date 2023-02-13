@@ -1,3 +1,9 @@
+import i18next from 'i18next';
+import state from "./settings";
+
+
+
+
 const weatherIcon = document.querySelector('.weather-icon'),
     temperature = document.querySelector('.temperature'),
     weatherDescription = document.querySelector('.weather-description'),
@@ -6,7 +12,11 @@ const weatherIcon = document.querySelector('.weather-icon'),
     city = document.querySelector('.city'),
     weatherError = document.querySelector('.weather-error')
 
-document.addEventListener('DOMContentLoaded', getWeather);
+
+
+window.addEventListener('DOMContentLoaded', getWeather);
+
+
 
 function setCity(event) {
     if (event.code === 'Enter') {
@@ -33,8 +43,10 @@ window.addEventListener('beforeunload', setLocalStorage)
 window.addEventListener('load', getLocalStorage)
 
 
-async function getWeather() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=71932f23a78cf168dfd6519583d125f0&units=metric`;
+
+export async function getWeather() {
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=71932f23a78cf168dfd6519583d125f0&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     if (res.ok) {
@@ -44,8 +56,9 @@ async function getWeather() {
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = getFormatData(data.main.temp);
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `${data.wind.speed} m/s`
+        wind.textContent = `${data.wind.speed} ${i18next.t('speed', {lng: state.language})}`
         humidity.textContent = `${data.main.humidity}%`
+        city.placeholder = i18next.t('placeholderCity', {lng: state.language})
 
     } else {
         weatherError.textContent = data.message
@@ -55,10 +68,10 @@ async function getWeather() {
 }
 
 
+
+
 function getFormatData(num) {
-
     let temp = Math.ceil(num)
-
     if (temp === 0) {
         return `${temp}°C`
     } else if (temp > 0) {
