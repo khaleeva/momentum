@@ -13,7 +13,7 @@ function getRandomQuotes (data) {
 }
 
 export async function getQuotes() {
-    const quotes = state.language === 'eng' ? 'data.json' : 'data-ru.json';
+    const quotes = state.language  === 'eng' ? 'data.json' : 'data-ru.json';
     const res = await fetch(quotes);
     const data = await res.json();
     quote.textContent = data[getRandomQuotes(data)].text

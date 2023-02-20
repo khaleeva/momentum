@@ -10,7 +10,7 @@
 </head>
 <body>
 <header class="header">
-    <div class="player-container">
+    <div class="player-container audio">
         <div class="player">
             <div class="player-info">
                 <div class="player-title">
@@ -81,7 +81,7 @@
     </div>
     <time class="time"></time>
     <date class="date"></date>
-    <div class="greeting-container">
+    <div class="greeting-container greet">
         <span class="greeting"></span>
         <input type="text" class="name" value="" placeholder="[Enter your name]"/>
     </div>
@@ -96,7 +96,8 @@
                     <div class="select is-active">
                         <div class="select-header">
                             <div class="select-current">Language</div>
-                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow"></div>
+                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow">
+                            </div>
                         </div>
                         <div class="select-body">
                             <div class="select-item" data-option='ru'>Русский</div>
@@ -104,12 +105,49 @@
                         </div>
                     </div>
                 </div>
+                <div class="blocks-container">
+                    <div class="choose-block"></div>
+                    <div class="select is-active">
+                        <div class="select-header">
+                            <div class="select-current">Blocks</div>
+                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow">
+                            </div>
+                        </div>
+
+                        <div class="select-body check-body">
+
+                            <input type="checkbox" id="audio" value='audio' class="custom-checkbox">
+                            <label for="audio" class="check-item">Audio</label>
+
+                            <input type="checkbox" id="weather" value='weather' class="custom-checkbox">
+                            <label for="weather" class="check-item">Weather</label>
+
+                            <input type="checkbox" id="time" value='time' class="custom-checkbox">
+                            <label for="time" class="check-item">Time</label>
+
+                            <input type="checkbox" id="date" value='date' class="custom-checkbox">
+                            <label for="date" class="check-item">Date</label>
+
+                            <input type="checkbox" id="greet" value='greet' class="custom-checkbox">
+                            <label for="greet" class="check-item">Greeting</label>
+
+                            <input type="checkbox" id="quotes" value='quotes' class="custom-checkbox">
+                            <label for="quotes" class="check-item">Quote</label>
+
+                            <input type="checkbox" id="todolist" value='todolist' class="custom-checkbox">
+                            <label for="todolist" class="check-item">Todo list</label>
+
+                        </div>
+
+                    </div>
+                </div>
                 <div class="background-container">
                     <div class="choose-back"></div>
                     <div class="select is-active">
                         <div class="select-header">
                             <div class="select-current">API</div>
-                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow"></div>
+                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow">
+                            </div>
                         </div>
                         <div class="select-body">
                             <div class="select-item" data-api='github'>GitHub</div>
@@ -117,17 +155,18 @@
                             <div class="select-item" data-api='flickr'>Flickr API</div>
                         </div>
                     </div>
+                    <input type="text" class="tag-input" placeholder="[ type tags ]">
                 </div>
             </div>
         </div>
-        <div class="footer-quote">
+        <div class="footer-quote quotes">
             <button class="change-quote"></button>
             <div>
                 <div class="quote"></div>
                 <div class="author"></div>
             </div>
         </div>
-        <div class="settings-todo">
+        <div class="settings-todo todolist">
             <img src="../assets/svg/task.svg" alt="task">
             <div class="modal-todo"></div>
         </div>

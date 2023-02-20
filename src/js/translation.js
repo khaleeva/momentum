@@ -14,7 +14,8 @@ i18next.init({
                 'speed' : 'm/s',
                 'lang' : 'English',
                 'chooseLang': 'Choose languge',
-                'chooseBack': 'Choose background image'
+                'chooseBack': 'Choose background image',
+                'chooseBlock': 'Choose blocks to view'
             }
         },
         ru: {
@@ -28,7 +29,8 @@ i18next.init({
                 'speed' : 'м/с',
                 'lang' : 'Русский',
                 'chooseLang': 'Выберите язык',
-                'chooseBack': 'Выберите фоновое изображение'
+                'chooseBack': 'Выберите фоновое изображение',
+                'chooseBlock': 'Выберите блоки для отображения'
             }
         }
     }

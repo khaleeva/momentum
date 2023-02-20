@@ -46,13 +46,15 @@ window.addEventListener('load', getLocalStorage)
 
 export async function getWeather() {
 
+    console.log(state.language)
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=71932f23a78cf168dfd6519583d125f0&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     if (res.ok) {
         weatherError.textContent = ''
         document.querySelector('.description-container').style.display = 'flex'
-        weatherIcon.style.visibility = 'visible'
+        // weatherIcon.style.visibility = 'visible'
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = getFormatData(data.main.temp);
         weatherDescription.textContent = data.weather[0].description;
