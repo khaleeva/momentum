@@ -19,6 +19,7 @@ function getRandomNum() {
 getRandomNum()
 
 
+
 export function getSlideNext() {
     if (state.photoSource === 'flickr') {
         index++;
@@ -38,8 +39,6 @@ export function getSlidePrev() {
     if (state.photoSource === 'flickr') {
         index--;
         getLinkToFlikerImage(state.tag ? state.tag : timeOfDay).then(r => r)
-
-
     } else if (state.photoSource === 'unplush') {
         getLinkToUnplushImage(state.tag ? state.tag : timeOfDay).then(r => r)
     } else {
@@ -49,6 +48,8 @@ export function getSlidePrev() {
         setBg()
     }
 }
+
+
 
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
@@ -82,18 +83,6 @@ export async function getLinkToUnplushImage(tag) {
         console.log(error.message);
     }
 }
-
-
-// const url = `https://api.unsplash.com/photos/random?query=${tag ? tag :timeOfDay}&client_id=ru5KfBzJgjIucCmasOEVkxbq7ZKvJ9u-23JRCPvzRtY`;
-//     const res = await fetch(url);
-//     const data = await res.json();
-//     const image = new Image();
-//     image.src = data.urls.regular;
-//     image.onload = () => {
-//         body.style.backgroundImage = `url(${image.src})`;
-//     };
-//
-// }
 
 
 export async function getLinkToFlikerImage(tag) {

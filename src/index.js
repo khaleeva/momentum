@@ -6,6 +6,8 @@ import './js/weather'
 import './js/quotes'
 import './js/player'
 import './js/translation'
+import './js/todo'
+
 
 
 

@@ -11,11 +11,15 @@ i18next.init({
                 "night": "Good night,",
                 'placeholder': '[Enter your name]',
                 'placeholderCity': '[Enter city]',
+                'placeholderTag': '[Type tags]',
                 'speed' : 'm/s',
-                'lang' : 'English',
-                'chooseLang': 'Choose languge',
-                'chooseBack': 'Choose background image',
-                'chooseBlock': 'Choose blocks to view'
+                'time' : 'Time' ,
+                'date' : 'Date',
+                'greet' : 'Greeting',
+                'quotes' : 'Quotes',
+                'weather': 'Weather',
+                'audio': 'Audio',
+                'todolist': 'Todo List'
             }
         },
         ru: {
@@ -26,11 +30,15 @@ i18next.init({
                 "night": "Доброй ночи,",
                 'placeholder': '[Введите свое имя]',
                 'placeholderCity': '[Введите город]',
+                'placeholderTag': '[Напишите теги]',
                 'speed' : 'м/с',
-                'lang' : 'Русский',
-                'chooseLang': 'Выберите язык',
-                'chooseBack': 'Выберите фоновое изображение',
-                'chooseBlock': 'Выберите блоки для отображения'
+                'time' : 'Время' ,
+                'date' : 'Дата',
+                'greet' : 'Приветствие',
+                'quotes' : 'Цитата',
+                'weather': 'Погода',
+                'audio': 'Аудио',
+                'todolist': 'Список дел'
             }
         }
     }

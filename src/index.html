@@ -92,83 +92,62 @@
             <img src="../assets/svg/settings.svg" alt="settings">
             <div class="modal-settings">
                 <div class="lang-container">
-                    <div class="choose-lang"></div>
-                    <div class="select is-active">
-                        <div class="select-header">
-                            <div class="select-current">Language</div>
-                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow">
-                            </div>
-                        </div>
-                        <div class="select-body">
-                            <div class="select-item" data-option='ru'>Русский</div>
-                            <div class="select-item" data-option='eng'>English</div>
-                        </div>
+                    <div class="lang-icon">
+                        <label class="radio" for="ru">
+                            <input type="radio" id="ru" name="radio" value="ru" checked/>
+                            <div class="radio__text">RU</div>
+                        </label>
                     </div>
-                </div>
-                <div class="blocks-container">
-                    <div class="choose-block"></div>
-                    <div class="select is-active">
-                        <div class="select-header">
-                            <div class="select-current">Blocks</div>
-                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow">
-                            </div>
-                        </div>
-
-                        <div class="select-body check-body">
-
-                            <input type="checkbox" id="audio" value='audio' class="custom-checkbox">
-                            <label for="audio" class="check-item">Audio</label>
-
-                            <input type="checkbox" id="weather" value='weather' class="custom-checkbox">
-                            <label for="weather" class="check-item">Weather</label>
-
-                            <input type="checkbox" id="time" value='time' class="custom-checkbox">
-                            <label for="time" class="check-item">Time</label>
-
-                            <input type="checkbox" id="date" value='date' class="custom-checkbox">
-                            <label for="date" class="check-item">Date</label>
-
-                            <input type="checkbox" id="greet" value='greet' class="custom-checkbox">
-                            <label for="greet" class="check-item">Greeting</label>
-
-                            <input type="checkbox" id="quotes" value='quotes' class="custom-checkbox">
-                            <label for="quotes" class="check-item">Quote</label>
-
-                            <input type="checkbox" id="todolist" value='todolist' class="custom-checkbox">
-                            <label for="todolist" class="check-item">Todo list</label>
-
-                        </div>
-
+                    <div class="lang-icon">
+                        <label class="radio" for="eng">
+                            <input type="radio" id="eng" name="radio" value="eng"/>
+                            <div class="radio__text">ENG</div>
+                        </label>
                     </div>
                 </div>
                 <div class="background-container">
-                    <div class="choose-back"></div>
-                    <div class="select is-active">
-                        <div class="select-header">
-                            <div class="select-current">API</div>
-                            <div class="arrow-select"><img class="arrow" src="assets/svg/btn-rotate.svg" alt="arrow">
-                            </div>
-                        </div>
-                        <div class="select-body">
-                            <div class="select-item" data-api='github'>GitHub</div>
-                            <div class="select-item" data-api='unplush'>Unsplash API</div>
-                            <div class="select-item" data-api='flickr'>Flickr API</div>
-                        </div>
+                    <div class="back-items">
+                        <div class="back-item" data-api='github'>GitHub</div>
+                        <div class="back-item" data-api='unplush'>Unsplash</div>
+                        <div class="back-item" data-api='flickr'>Flickr</div>
                     </div>
-                    <input type="text" class="tag-input" placeholder="[ type tags ]">
+                    <input type="text" class="tag-input" placeholder="[ Type tags ]">
                 </div>
+                <div class="blocks-container">
+                    <div class="check-body">
+                        <input type="checkbox" id="audio" value='audio' class="custom-checkbox">
+                        <label for="audio" class="check-item">Audio</label>
+                        <input type="checkbox" id="weather" value='weather' class="custom-checkbox">
+                        <label for="weather" class="check-item">Weather</label>
+                        <input type="checkbox" id="time" value='time' class="custom-checkbox">
+                        <label for="time" class="check-item">Time</label>
+                        <input type="checkbox" id="date" value='date' class="custom-checkbox">
+                        <label for="date" class="check-item">Date</label>
+                        <input type="checkbox" id="quotes" value='quotes' class="custom-checkbox">
+                        <label for="quotes" class="check-item">Quote</label>
+                        <input type="checkbox" id="todolist" value='todolist' class="custom-checkbox">
+                        <label for="todolist" class="check-item">Todo List</label>
+                        <input type="checkbox" id="greet" value='greet' class="custom-checkbox">
+                        <label for="greet" class="check-item">Greeting</label>
+                    </div>
+                </div>
+
+
             </div>
+
         </div>
         <div class="footer-quote quotes">
             <button class="change-quote"></button>
-            <div>
+            <div class="quote-container">
                 <div class="quote"></div>
-                <div class="author"></div>
+                <i><div class="author"></div></i>
             </div>
         </div>
         <div class="settings-todo todolist">
             <img src="../assets/svg/task.svg" alt="task">
-            <div class="modal-todo"></div>
+            <div class="modal-todo">
+
+            </div>
         </div>
 
     </div>
