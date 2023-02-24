@@ -7,12 +7,14 @@ import i18next from 'i18next';
 
 document.addEventListener('DOMContentLoaded', function () {
     toggleBlocks();
-    state.blocks.forEach(block => {
+    blocks.forEach(block => {
         document.querySelector(`label[for="${block}"]`).textContent = i18next.t(`${block}`, {lng: savedState.language})
     })
     document.querySelector('.tag-input').placeholder = i18next.t('placeholderTag', {lng: savedState.language})
 
 })
+
+const blocks = ['time', 'date', 'greet', 'quotes', 'weather', 'audio', 'todolist']
 
 
 let state = {
@@ -24,6 +26,9 @@ let state = {
 
 
 export default state
+
+
+
 
 
 function setSettingsLocalStorage() {
@@ -94,7 +99,7 @@ openToDoModal.addEventListener('click', function () {
 
 document.querySelectorAll('input[type=radio]').forEach(lang => lang.addEventListener('change', () => {
     state.language = lang.value
-    state.blocks.forEach(block => {
+    blocks.forEach(block => {
         document.querySelector(`label[for="${block}"]`).textContent = i18next.t(`${block}`, {lng: state.language})
     })
     document.querySelector('.tag-input').placeholder = i18next.t('placeholderTag', {lng: state.language})
@@ -106,29 +111,29 @@ document.querySelectorAll('input[type=radio]').forEach(lang => lang.addEventList
 
 document.querySelectorAll('.back-item').forEach(back => back.addEventListener('click', (e) => {
     state.photoSource = e.target.dataset.api
-
-
     if (e.target.dataset.api !== 'github') {
         document.querySelector('.tag-input').style.visibility = 'visible'
-        document.querySelector('.tag-input').addEventListener('blur', () => {
-            state.tag = document.querySelector('.tag-input').value
-
-            if (e.target.dataset.api === 'flickr') {
-                getLinkToFlikerImage(state.tag)
-            } else {
-                getLinkToUnplushImage(state.tag)
-            }
-        })
     } else {
         document.querySelector('.tag-input').style.visibility = 'hidden'
     }
-
-
     document.querySelectorAll('.back-item').forEach(otherBack => otherBack.classList.remove('active-back'))
     e.target.classList.add('active-back')
     getSlideNext()
     getSlidePrev()
 }))
+
+document.querySelector('.tag-input').addEventListener('input', () => {
+    state.tag = document.querySelector('.tag-input').value
+
+    document.querySelector('.tag-btn').addEventListener('click', () => {
+        if(state.photoSource === 'flickr'){
+            getLinkToFlikerImage(state.tag)
+        } else {
+            getLinkToUnplushImage(state.tag)
+        }
+    })
+
+})
 
 function toggleBlocks() {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');

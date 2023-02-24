@@ -30,7 +30,7 @@ i18next.init({
                 "night": "Доброй ночи,",
                 'placeholder': '[Введите свое имя]',
                 'placeholderCity': '[Введите город]',
-                'placeholderTag': '[Напишите теги]',
+                'placeholderTag': '[Введите тэги]',
                 'speed' : 'м/с',
                 'time' : 'Время' ,
                 'date' : 'Дата',
