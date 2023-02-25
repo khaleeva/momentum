@@ -12,6 +12,7 @@ i18next.init({
                 'placeholder': '[Enter your name]',
                 'placeholderCity': '[Enter city]',
                 'placeholderTag': '[Type tags]',
+                'placeholderTodo': '[Enter your task]',
                 'speed' : 'm/s',
                 'time' : 'Time' ,
                 'date' : 'Date',
@@ -19,7 +20,9 @@ i18next.init({
                 'quotes' : 'Quotes',
                 'weather': 'Weather',
                 'audio': 'Audio',
-                'todolist': 'Todo List'
+                'todolist': 'Todo List',
+                'emptyList': 'Empty List'
+
             }
         },
         ru: {
@@ -31,6 +34,7 @@ i18next.init({
                 'placeholder': '[Введите свое имя]',
                 'placeholderCity': '[Введите город]',
                 'placeholderTag': '[Введите тэги]',
+                'placeholderTodo': '[Введите задачу]',
                 'speed' : 'м/с',
                 'time' : 'Время' ,
                 'date' : 'Дата',
@@ -38,7 +42,9 @@ i18next.init({
                 'quotes' : 'Цитата',
                 'weather': 'Погода',
                 'audio': 'Аудио',
-                'todolist': 'Список дел'
+                'todolist': 'Список задач',
+                'emptyList': 'Список задач пуст'
+
             }
         }
     }

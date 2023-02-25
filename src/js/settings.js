@@ -3,14 +3,17 @@ import {getQuotes} from "./quotes";
 import {getLinkToFlikerImage, getLinkToUnplushImage, getSlideNext, getSlidePrev} from "./background";
 
 import i18next from 'i18next';
+import {showTasks} from "./todo";
 
 
 document.addEventListener('DOMContentLoaded', function () {
     toggleBlocks();
+    showTasks()
     blocks.forEach(block => {
         document.querySelector(`label[for="${block}"]`).textContent = i18next.t(`${block}`, {lng: savedState.language})
     })
     document.querySelector('.tag-input').placeholder = i18next.t('placeholderTag', {lng: savedState.language})
+    document.querySelector('.task').placeholder = i18next.t('placeholderTodo', {lng: savedState.language})
 
 })
 
@@ -85,16 +88,12 @@ if (savedState) {
 }
 
 
-const openSettingsModal = document.querySelector('.settings-btn img'),
-    openToDoModal = document.querySelector('.settings-todo img')
+const openSettingsModal = document.querySelector('.settings-btn img')
+
 
 
 openSettingsModal.addEventListener('click', function () {
     document.querySelector('.modal-settings').classList.toggle('open-modal')
-})
-
-openToDoModal.addEventListener('click', function () {
-    document.querySelector('.modal-todo').classList.toggle('open-modal')
 })
 
 
@@ -104,9 +103,11 @@ document.querySelectorAll('input[type=radio]').forEach(lang => lang.addEventList
         document.querySelector(`label[for="${block}"]`).textContent = i18next.t(`${block}`, {lng: state.language})
     })
     document.querySelector('.tag-input').placeholder = i18next.t('placeholderTag', {lng: state.language})
+    document.querySelector('.task').placeholder = i18next.t('placeholderTodo', {lng: state.language})
 
     getWeather().then(r => r)
     getQuotes().then(r => r)
+    showTasks()
 }))
 
 
@@ -139,7 +140,7 @@ document.querySelector('.tag-input').addEventListener('input', () => {
 })
 
 function toggleBlocks() {
-    const checkboxes = document.querySelectorAll('.custom-checkbox');
+    const checkboxes = document.querySelectorAll('.check-block');
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', function () {
             const isChecked = checkbox.checked;

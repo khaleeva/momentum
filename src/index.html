@@ -89,7 +89,8 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="settings-btn">
-            <img src="../assets/svg/settings.svg" alt="settings">
+            <div class="setting-icon"><img src="../assets/svg/settings.svg" alt="settings"></div>
+
             <div class="modal-settings">
                 <div class="lang-container">
                     <div class="lang-icon">
@@ -119,19 +120,19 @@
                 </div>
                 <div class="blocks-container">
                     <div class="check-body">
-                        <input type="checkbox" id="audio" value='audio' class="custom-checkbox">
+                        <input type="checkbox" id="audio" value='audio' class="custom-checkbox check-block">
                         <label for="audio" class="check-item">Audio</label>
-                        <input type="checkbox" id="weather" value='weather' class="custom-checkbox">
+                        <input type="checkbox" id="weather" value='weather' class="custom-checkbox check-block">
                         <label for="weather" class="check-item">Weather</label>
-                        <input type="checkbox" id="time" value='time' class="custom-checkbox">
+                        <input type="checkbox" id="time" value='time' class="custom-checkbox check-block">
                         <label for="time" class="check-item">Time</label>
-                        <input type="checkbox" id="date" value='date' class="custom-checkbox">
+                        <input type="checkbox" id="date" value='date' class="custom-checkbox check-block">
                         <label for="date" class="check-item">Date</label>
-                        <input type="checkbox" id="quotes" value='quotes' class="custom-checkbox">
+                        <input type="checkbox" id="quotes" value='quotes' class="custom-checkbox check-block">
                         <label for="quotes" class="check-item">Quote</label>
-                        <input type="checkbox" id="todolist" value='todolist' class="custom-checkbox">
+                        <input type="checkbox" id="todolist" value='todolist' class="custom-checkbox check-block">
                         <label for="todolist" class="check-item">Todo List</label>
-                        <input type="checkbox" id="greet" value='greet' class="custom-checkbox">
+                        <input type="checkbox" id="greet" value='greet' class="custom-checkbox check-block">
                         <label for="greet" class="check-item">Greeting</label>
                     </div>
                 </div>
@@ -143,18 +144,17 @@
             <button class="change-quote"></button>
             <div class="quote-container">
                 <div class="quote"></div>
-                <i><div class="author"></div></i>
+                <i>
+                    <div class="author"></div>
+                </i>
             </div>
         </div>
         <div class="settings-todo todolist">
-            <img src="../assets/svg/task.svg" alt="task">
-            <div class="modal-todo">
-                <input type="text" class="task" value="" placeholder="[Enter your task]"/>
-                <div class="todo-title"></div>
-                <div class="todo-list">
-                </div>
-                <div class="todo-btn"></div>
+            <input type="text" class="task" value="" placeholder="[Enter your task]"/>
+            <div class="todo-title"></div>
+            <div class="todo-list">
             </div>
+            <div class="todo-btn"></div>
         </div>
 
     </div>
