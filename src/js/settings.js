@@ -45,7 +45,6 @@ if (savedState) {
     state.blocks = savedState.blocks
     state.tag = savedState.tag
 
-
     savedState.blocks.forEach((blockName) => {
         const blockElement = document.querySelector(`.${blockName}`);
         if (blockElement) {
@@ -73,11 +72,13 @@ if (savedState) {
 
     if (savedState.photoSource === 'flickr') {
         document.querySelector('.tag-input').style.visibility = 'visible'
+        document.querySelector('.tag-btn').style.visibility = 'visible'
         getLinkToFlikerImage(savedState.tag)
     }
 
     if (savedState.photoSource === 'unplush') {
         document.querySelector('.tag-input').style.visibility = 'visible'
+        document.querySelector('.tag-btn').style.visibility = 'visible'
         getLinkToUnplushImage(savedState.tag)
     }
 
@@ -113,8 +114,10 @@ document.querySelectorAll('.back-item').forEach(back => back.addEventListener('c
     state.photoSource = e.target.dataset.api
     if (e.target.dataset.api !== 'github') {
         document.querySelector('.tag-input').style.visibility = 'visible'
+        document.querySelector('.tag-btn').style.visibility = 'visible'
     } else {
         document.querySelector('.tag-input').style.visibility = 'hidden'
+        document.querySelector('.tag-btn').style.visibility = 'hidden'
     }
     document.querySelectorAll('.back-item').forEach(otherBack => otherBack.classList.remove('active-back'))
     e.target.classList.add('active-back')
@@ -136,7 +139,7 @@ document.querySelector('.tag-input').addEventListener('input', () => {
 })
 
 function toggleBlocks() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('.custom-checkbox');
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', function () {
             const isChecked = checkbox.checked;
