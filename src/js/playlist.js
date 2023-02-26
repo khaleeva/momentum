@@ -1,10 +1,11 @@
 const playList = [
     {
         id: 1,
-        title: `Intro`,
-        src: `assets/sounds/The xx-Intro.mp3`,
-        author: 'The xx',
-        img: `assets/img/soundPoster/intro.jpg`,
+        title: `The Fade Out Line`,
+        src: `assets/sounds/Phoebe Killdeer & The Short Straws-The Fade Out Line.mp3`,
+        author: 'Phoebe Killdeer & The Short Straws ',
+        img: `assets/img/soundPoster/4.jpg`,
+
     },
 
     {
@@ -17,10 +18,10 @@ const playList = [
 
     {
         id: 3,
-        title: `The Fade Out Line`,
-        src: `assets/sounds/Phoebe Killdeer & The Short Straws-The Fade Out Line.mp3`,
-        author: 'Phoebe Killdeer & The Short Straws ',
-        img: `assets/img/soundPoster/4.jpg`,
+        title: `Intro`,
+        src: `assets/sounds/The xx-Intro.mp3`,
+        author: 'The xx',
+        img: `assets/img/soundPoster/intro.jpg`,
 
     },
     {

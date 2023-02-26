@@ -9,14 +9,6 @@
   --wind: url('../assets/svg/wind.svg');
 }
 
-
-
-
-
-
-
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -842,22 +834,7 @@ body {
   box-shadow: 0 3px 17px rgba(0, 0, 0, 0.15);
 }
 
-.tag-container{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.tag-btn{
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  background: linear-gradient(90deg, #ea5c2f 0%, #f3b921 100%);
-  position: relative;
-  cursor: pointer;
-  visibility: hidden;
-}
 
 .todo-btn{
   width: 30px;
@@ -934,7 +911,7 @@ body {
 
 .tag-input{
   visibility: hidden;
-  width: 80%;
+  width: 100%;
   height: 34px;
   padding: 5px;
   color: #fff;
@@ -946,7 +923,7 @@ body {
 
 
 
-.tag-input::placeholder{
+.tag-input::placeholder, .task::placeholder{
   color:rgba(255,255,255,0.7);
   text-align: center;
 }

@@ -17,7 +17,6 @@ const weatherIcon = document.querySelector('.weather-icon'),
 window.addEventListener('DOMContentLoaded', getWeather);
 
 
-
 function setCity(event) {
     if (event.code === 'Enter') {
         getWeather();
@@ -51,7 +50,6 @@ export async function getWeather() {
     if (res.ok) {
         weatherError.textContent = ''
         document.querySelector('.description-container').style.display = 'flex'
-        // weatherIcon.style.visibility = 'visible'
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = getFormatData(data.main.temp);
         weatherDescription.textContent = data.weather[0].description;

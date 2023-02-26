@@ -2,6 +2,7 @@ import {getTimeOfDay} from "./greeting";
 import state from './settings'
 
 
+
 const body = document.querySelector('body')
 const slideNext = document.querySelector('.slide-next')
 const slidePrev = document.querySelector('.slide-prev')
@@ -9,6 +10,12 @@ let randomNum = 0;
 const timeOfDay = getTimeOfDay()
 let index = 0
 
+document.addEventListener('DOMContentLoaded', function () {
+    const src = JSON.parse(localStorage.getItem('imageSrc'));
+    body.style.backgroundImage = `url(${src})`;
+    getRandomNum()
+
+})
 
 function getRandomNum() {
     const min = 1
@@ -16,16 +23,14 @@ function getRandomNum() {
     randomNum = Math.floor(Math.random() * (max - min)) + min
 }
 
-getRandomNum()
-
 
 
 export function getSlideNext() {
     if (state.photoSource === 'flickr') {
         index++;
-        getLinkToFlikerImage(state.tag ? state.tag : timeOfDay).then(r => r)
+        getLinkToFlikerImage()
     } else if (state.photoSource === 'unplush') {
-        getLinkToUnplushImage(state.tag ? state.tag : timeOfDay).then(r => r)
+        getLinkToUnplushImage()
     } else {
         if (randomNum < 20) {
             randomNum += 1
@@ -38,9 +43,9 @@ export function getSlideNext() {
 export function getSlidePrev() {
     if (state.photoSource === 'flickr') {
         index--;
-        getLinkToFlikerImage(state.tag ? state.tag : timeOfDay).then(r => r)
+        getLinkToFlikerImage()
     } else if (state.photoSource === 'unplush') {
-        getLinkToUnplushImage(state.tag ? state.tag : timeOfDay).then(r => r)
+        getLinkToUnplushImage()
     } else {
         if (randomNum > 1) {
             randomNum -= 1
@@ -54,8 +59,7 @@ export function getSlidePrev() {
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
 
-const setBg = () => {
-
+export const setBg = () => {
     const bgNum = randomNum.toString().padStart(2, '0')
     const img = new Image();
     img.src = `https://raw.githubusercontent.com/khaleeva/stage1-tasks/webp/images/${timeOfDay}/${bgNum}.webp`
@@ -63,16 +67,21 @@ const setBg = () => {
         body.style.backgroundImage = `url(${img.src})`
     })
 }
-setBg()
 
-export async function getLinkToUnplushImage(tag) {
+
+
+
+export const getLinkToUnplushImage = async () => {
+
     try {
-        const url = `https://api.unsplash.com/photos/random?query=${tag ? tag :timeOfDay}&client_id=ru5KfBzJgjIucCmasOEVkxbq7ZKvJ9u-23JRCPvzRtY`;
+        const tag = state.tag || timeOfDay;
+        const url = `https://api.unsplash.com/photos/random?query=${tag}&client_id=ru5KfBzJgjIucCmasOEVkxbq7ZKvJ9u-23JRCPvzRtY`;
         const res = await fetch(url);
         if (res.status === 200) {
             const data = await res.json();
             const image = new Image();
             image.src = data.urls['regular'];
+            localStorage.setItem('imageSrc', JSON.stringify(image.src));
             image.onload = () => {
                 body.style.backgroundImage = `url(${image.src})`;
             };
@@ -85,8 +94,9 @@ export async function getLinkToUnplushImage(tag) {
 }
 
 
-export async function getLinkToFlikerImage(tag) {
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=276918a15aa4e7defd171a6814349a0d&tags=${tag ? tag : timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
+export const getLinkToFlikerImage = async () =>{
+    const tag = state.tag || timeOfDay;
+    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=276918a15aa4e7defd171a6814349a0d&tags=${tag}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
     const images = data.photos.photo;
@@ -94,8 +104,8 @@ export async function getLinkToFlikerImage(tag) {
     if(images.length) {
         const imageUrls = images.filter(i => i.url_l).map(i => i.url_l);
         const image = new Image();
-        const imageUrl = imageUrls[index];
-        image.src = imageUrl;
+        image.src = imageUrls[index];
+        localStorage.setItem('imageSrc', JSON.stringify(image.src));
         image.onload = () => {
             body.style.backgroundImage = `url(${image.src})`;
         };
