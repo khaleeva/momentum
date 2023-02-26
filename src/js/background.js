@@ -6,13 +6,19 @@ import state from './settings'
 const body = document.querySelector('body')
 const slideNext = document.querySelector('.slide-next')
 const slidePrev = document.querySelector('.slide-prev')
-let randomNum = 0;
+let randomNum = 1;
 const timeOfDay = getTimeOfDay()
 let index = 0
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const src = JSON.parse(localStorage.getItem('imageSrc'));
-    body.style.backgroundImage = `url(${src})`;
+    if(src){
+        body.style.backgroundImage = `url(${src})`;
+    } else {
+        setBg()
+    }
     getRandomNum()
 
 })
@@ -63,9 +69,11 @@ export const setBg = () => {
     const bgNum = randomNum.toString().padStart(2, '0')
     const img = new Image();
     img.src = `https://raw.githubusercontent.com/khaleeva/stage1-tasks/webp/images/${timeOfDay}/${bgNum}.webp`
+    localStorage.setItem('imageSrc', JSON.stringify(img.src));
     img.addEventListener('load', () => {
         body.style.backgroundImage = `url(${img.src})`
     })
+
 }
 
 
