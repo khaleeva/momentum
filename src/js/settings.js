@@ -7,7 +7,6 @@ import {showTasks} from "./todo";
 
 const tagInput =  document.querySelector('.tag-input'),
     task = document.querySelector('.task'),
-    // tagBtn = document.querySelector('.tag-btn'),
     openSettingsModal = document.querySelector('.settings-btn img')
 
 const blocksElement = ['time', 'date', 'greet', 'quotes', 'weather', 'audio', 'todolist']
@@ -39,12 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const getVisibiltyIunput = () => {
     tagInput.style.visibility = 'visible'
-    // tagBtn.style.visibility = 'visible'
 }
 
 const getHiddenIunput = () => {
     tagInput.style.visibility = 'hidden'
-    // tagBtn.style.visibility = 'hidden'
 }
 
 

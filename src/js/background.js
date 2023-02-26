@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
         setBg()
     }
     getRandomNum()
-
 })
+
 
 function getRandomNum() {
     const min = 1
@@ -75,6 +75,8 @@ export const setBg = () => {
     })
 
 }
+
+
 
 
 
