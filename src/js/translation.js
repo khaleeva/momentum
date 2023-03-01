@@ -21,7 +21,8 @@ i18next.init({
                 'weather': 'Weather',
                 'audio': 'Audio',
                 'todolist': 'Todo List',
-                'emptyList': 'Empty List'
+                'emptyList': 'Empty List',
+                'defaultCity': 'Minsk'
 
             }
         },
@@ -43,7 +44,8 @@ i18next.init({
                 'weather': 'Погода',
                 'audio': 'Аудио',
                 'todolist': 'Список задач',
-                'emptyList': 'Список задач пуст'
+                'emptyList': 'Список задач пуст',
+                'defaultCity': 'Минск'
 
             }
         }

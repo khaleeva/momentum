@@ -2,8 +2,6 @@ import i18next from 'i18next';
 import state from "./settings";
 
 
-
-
 const weatherIcon = document.querySelector('.weather-icon'),
     temperature = document.querySelector('.temperature'),
     weatherDescription = document.querySelector('.weather-description'),
@@ -13,8 +11,7 @@ const weatherIcon = document.querySelector('.weather-icon'),
     weatherError = document.querySelector('.weather-error')
 
 
-
-window.addEventListener('DOMContentLoaded', getWeather);
+window.addEventListener('DOMContentLoaded',getWeather);
 
 
 function setCity(event) {
@@ -42,7 +39,6 @@ window.addEventListener('beforeunload', setLocalStorage)
 window.addEventListener('load', getLocalStorage)
 
 
-
 export async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=71932f23a78cf168dfd6519583d125f0&units=metric`;
     const res = await fetch(url);
@@ -53,9 +49,13 @@ export async function getWeather() {
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = getFormatData(data.main.temp);
         weatherDescription.textContent = data.weather[0].description;
-        wind.textContent = `${data.wind.speed} ${i18next.t('speed', {lng: state.language})}`
-        humidity.textContent = `${data.main.humidity}%`
+        wind.textContent = `${Math.round(data.wind.speed)} ${i18next.t('speed', {lng: state.language})}`
+        humidity.textContent = `${Math.round(data.main.humidity)}%`
         city.placeholder = i18next.t('placeholderCity', {lng: state.language})
+        if (city.value.toLocaleLowerCase() === 'минск' || city.value.toLocaleLowerCase() === 'minsk') {
+            city.value = i18next.t('defaultCity', {lng: state.language})
+        }
+
 
     } else {
         weatherError.textContent = data.message
@@ -63,8 +63,6 @@ export async function getWeather() {
         temperature.textContent = ``
     }
 }
-
-
 
 
 function getFormatData(num) {

@@ -7,7 +7,8 @@ import {showTasks} from "./todo";
 
 const tagInput =  document.querySelector('.tag-input'),
     task = document.querySelector('.task'),
-    openSettingsModal = document.querySelector('.settings-btn img')
+    openSettingsModal = document.querySelector('.settings-btn img'),
+    openTodoModal = document.querySelector('.settings-task img')
 
 const blocksElement = ['time', 'date', 'greet', 'quotes', 'weather', 'audio', 'todolist']
 
@@ -103,6 +104,10 @@ if (savedState) {
 
 openSettingsModal.addEventListener('click', function () {
     document.querySelector('.modal-settings').classList.toggle('open-modal')
+})
+
+openTodoModal.addEventListener('click', function () {
+    document.querySelector('.settings-todo').classList.toggle('open-modal')
 })
 
 
